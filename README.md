@@ -10,4 +10,6 @@ Configurar un superusuario para el sitio de administración.
 Usar plantillas para crear páginas HTML dinámicas.
 Diseñar formularios controlados por datos.
 
-https://docs.microsoft.com/es-es/learn/paths/django-create-data-driven-websites/
+Tutorial: https://docs.microsoft.com/es-es/learn/paths/django-create-data-driven-websites/
+
+La aplicación construida "Dog Shelter Application" corre en https://as-django-app.herokuapp.com/shelter/1
