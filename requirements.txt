@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 django
 pylint
 autopep8
 django-crispy-forms
+=======
+django
+pylint
+autopep8
+django-crispy-forms
+>>>>>>> 2d89601541ab9ae8d2f1f30747642fb04882e8c8
 gunicorn
