@@ -2,3 +2,4 @@ django
 pylint
 autopep8
 django-crispy-forms
+gunicorn
