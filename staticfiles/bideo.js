@@ -1,4 +1,4 @@
-{% load static %}
+
 /**
  * Full Background Video
  *
