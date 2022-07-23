@@ -1,3 +1,4 @@
+
 (function () {
 
   var bv = new Bideo();
@@ -22,12 +23,8 @@
     // of different video formats to add
     src: [
       {
-        src: '{% static 'images/shoah_intro.mp4' %}',
+        src: 'https://demos.albertosaenz.com/shoahDDBB/shoah_intro.mp4',
         type: 'video/mp4'
-      },
-      {
-        src: '{% static 'images/night.webm' %}',
-        type: 'video/webm;codecs="vp8, vorbis"'
       }
     ],
 
