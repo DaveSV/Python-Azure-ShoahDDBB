@@ -1,15 +1,9 @@
-﻿# Python-Django-c-digo-de-Micrisoft-Learn-Dog-Shelters
 
-Django para crear sitios web controlados por datos.
 
-Ruta de aprendizaje:
+La aplicación construida "Shoa Database" corre en https://as-django-app.herokuapp.com/shelter/1 y https://shoahddbb.azurewebsites.net
 
-Compilar una aplicación.
-Crear y administrar una base datos.
-Configurar un superusuario para el sitio de administración.
-Usar plantillas para crear páginas HTML dinámicas.
-Diseñar formularios controlados por datos.
+Python 3.8
+Django 4.0
 
-Tutorial: https://docs.microsoft.com/es-es/learn/paths/django-create-data-driven-websites/
+![image](https://user-images.githubusercontent.com/29576337/180589311-d0c7a116-cbd0-4682-b2dd-ab9161368c99.png)
 
-La aplicación construida "Dog Shelter Application" corre en https://as-django-app.herokuapp.com/shelter/1
