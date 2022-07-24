@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title>The Holocaust Films Database</title>
    <!-- Favicons -->
-  <link href="{% static 'images/icons.png' %}" rel="icon">
+  <link href="{% static 'images/icons.png' %}" rel="icon"> 
   <meta name="keywords" content="css3, html5, js, background video, fullscreen video">
   <meta name="description" content="Super easy to implement HTML5 fullscreen background video library in JavaScript.">
 
@@ -182,14 +182,25 @@
   </div>
 
   <div id="footer">
-    <a href="https://twitter.com/alb_dvd" target="_blank">Follow on Twitter</a>
+    
 
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="alb_dvd">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <div id="donate-button-container">
+      <div id="donate-button"></div>
+      <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+      <script>
+      PayPal.Donation.Button({
+      env:'production',
+      hosted_button_id:'H867RBHYH39EL',
+      image: {
+      src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
+      alt:'Donate with PayPal button',
+      title:'PayPal - The safer, easier way to pay online!',
+      }
+      }).render('#donate-button');
+      </script>
+      </div>
 
-    <a href="https://vimeo.com/manage/videos/732245563" target="_blank">
-      Video on Vimeo
-    </a>
+    
   </div>
 
   <script src="{% static 'bideo.js' %}"></script>
