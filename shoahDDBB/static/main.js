@@ -23,7 +23,7 @@
     // of different video formats to add
     src: [
       {
-        src: 'static/shoah_intro.mp4',
+        src: "static/shoah_intro.mp4",
         type: 'video/mp4'
       }
     ],
