@@ -1,6 +1,15 @@
-#from django.shortcuts import render
-from django.http import HttpResponse
+
 from django.template.response import TemplateResponse
+from django.shortcuts import render
+from django.views.generic import ListView
+
+from shoahDDBB.models import Movies
 
 def index(request):
-    return TemplateResponse(request, 'index.html')
+    response = render(request, "index.html")  # django.http.HttpResponse
+    response.set_cookie(key='shoah', value=1939)
+    return response
+
+class catalog(ListView):
+    model = Movies
+    

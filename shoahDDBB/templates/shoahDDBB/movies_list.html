@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
+    <title>Holocaust Database</title>
+    
+</head>
+<body>
+    <img src="https://images.twinkl.co.uk/tw1n/image/private/s--X-0yM77K--/c_fill,g_face:auto,h_430,w_1600/q_auto:eco/v1/u/blog/blog-header-1583253206.jpg" alt="portal header" class="img-fluid" width="100%">
+    <div>
+      <ul class="nav nav-tabs nav-fill">
+          <li class="nav-item">
+            <a class="nav-link" href="/index">Catalog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup/">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/post/">Author</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Register</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+  </div>
+    <br>
+	<br>
+
+
+
+
+
+<p>
+{% if movies_list %}
+
+<div class="container card">
+  <h1>Movie Catalog</h1>
+  <div class="card-body">
+      <table class="table table-hover">
+          <tr>
+              <th>Movie</th>
+              <th>Year</th>
+              <th>Country</th>
+              <th>Director</th>
+              <th>Language</th>
+              <th>Details</th>
+          </tr>
+          {% for movie in movies_list %}
+              <tr>
+                  <td>{{movie.mov_name}}</td>
+                  <td>{{movie.mov_year}}</td>
+                  <td>{{movie.mov_country}}</td>
+                  <td>{{movie.mov_director}}</td>
+                  <td>{{movie.mov_language}}</td>
+                  <td><a href="{% url 'catalog' %}" class="btn btn-info btn-sm" type="submit">View details</a></td>
+              </tr>
+          {% endfor %}
+      </table>
+  </div>
+</div>
+
+{% else %}
+  <p>There are no movies in the database.</p>
+{% endif %}
+</p>
+
+
+
+</body>
+</html>
