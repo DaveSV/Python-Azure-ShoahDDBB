@@ -102,20 +102,16 @@ Rabbi Dr. Bernhard Rosenberg
           <tr>
               <th>Movie</th>
               <th>Title</th>
-              <th>Year</th>
-              <th>Country</th>
-              <th>Director</th>
-              <th>Language</th>
+              
               <th>Details</th>
           </tr>
           {% for movie in movies_list %}
               <tr>
                   <td><img src="{{movie.mov_poster}}" alt="Movie Poster" width="100"></td>
-                  <td>{{movie.mov_name}}</td>
-                  <td>{{movie.mov_year}}</td>
-                  <td>{{movie.mov_country}}</td>
-                  <td>{{movie.mov_director}}</td>
-                  <td>{{movie.mov_language}}</td>
+                  <td>{{movie.mov_name}} {{movie.mov_year}} {{movie.mov_country}}
+                  </br>Director {{movie.mov_director}}
+                </br>Language {{movie.mov_language}}
+                  </td>
                   <td><a href="{% url 'catalog' %}" class="btn btn-info btn-sm" type="submit">View details</a></td>
               </tr>
           {% endfor %}
