@@ -7,23 +7,38 @@ DOCTYPE html>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{% static 'style.css' %}" rel="stylesheet">
+    <style>
+      .div_contenedor {
+        position: relative;
+        padding-bottom: 56.25%; /*panorámico*/
+        padding-top: 25px;
+        height: 0;
+      }
+      .div_contenedor iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
     <title>Holocaust Database</title>
     
 </head>
 <body>
-    <img src="{% static 'images/header2.jpg' %}" alt="portal header" class="img-fluid" width="100%">
+    <img src="{% static 'images/Holocaust-Movies.jpg' %}" alt="portal header" class="img-fluid" width="100%">
     <div>
-      <nav class="navbar navbar-dark bg-dark justify-content-between">
-        <a class="navbar-brand" href="/catalog/"><i class="fa fa-film"></i> Catalog</a>
-        <a class="navbar-brand" href="/signup/"><i class="fa fa-search"></i> Search</a>
-        <a class="navbar-brand" href="/author/"><i class="fa fa-book"></i> Author</a>
-        <a class="navbar-brand" href="/register/"><i class="fa fa-user-plus"></i> Register</a>
-        <a class="navbar-brand"href="/contact/"><i class="fa fa-user-plus"></i> Contact</a>
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/catalog/"> Movie Catalog</a>
+        <a class="navbar-brand" href="/signup/"> Search</a>
+        <a class="navbar-brand" href="/author/"> Author</a>
+        <a class="navbar-brand" href="/register/"> Register / Login</a>
+        <a class="navbar-brand"href="/contact/"> Contact</a>
 
         
         <form class="form-inline">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-info btn-sm" type="submit">Search</button>
+          <button class="btn btn-info" type="submit">Search</button>
         </form>
       </nav>
     </div>
@@ -41,26 +56,31 @@ DOCTYPE html>
 <p>The Holocaust as Seen by Through Film by Rabbi Dr. Bernhard H. Rosenberg is a special book that adds to his other authored that educate students, educators and the community about the Holocaust and assists in meeting the New Jersey mandate that all students must learn about the Holocaust and genocide. This book in particular blends the specific cognitive, historical aspects of the atrocity with excellent literature which helps meet the new common core standards through the pictures, questions, discussions and research associated with each story. The Commission recommends the book for the classroom and community.
 </p>
 </br>
+<div class="div_contenedor">
 <p align=center>
   <iframe title="vimeo-player" src="https://player.vimeo.com/video/735051890?h=9295f61134&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&portrait=false&byline=false&title=false" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 </p>
+</div>
 </br>
 <p>
-My wife and ayshes chayl, Charlene, joins me in dedicating this book to the memory of my beloved parents, Jacob and Rachel Rosenberg, of blessed memory, Holocaust survivors, and to our children, Ilana, Ayelet, Yaakov and Ari, and grandchildren.
+"My wife and ayshes chayl, Charlene, joins me in dedicating this book to the memory of my beloved parents, Jacob and Rachel Rosenberg, of blessed memory, Holocaust survivors, and to our children, Ilana, Ayelet, Yaakov and Ari, and grandchildren."
   <p>
-  This book is also in memory of my aunt Regina Braun and my cousins
+  "This book is also in memory of my aunt Regina Braun and my cousins
   Maria and Fred Devinki of blessed memory. In addition to my parents, they
-  were the only family members I ever knew who survived the Holocaust. 
+  were the only family members I ever knew who survived the Holocaust." 
   </p>
 </p>
 <p>
   <h2>Acknowledgments:</h2>
-A special thanks to my sons, Yaakov and Ari Rosenberg for helping edit
+"A special thanks to my sons, Yaakov and Ari Rosenberg for helping edit
 this book’s first edition.
 Thank you to Azriela Jaffe, an accomplished author, for her assistance
 in editing this book’s updated edition.
 Thank you to Kathy Rend, an outstanding graphic artist, for creating a
-stunning cover for the book and preparing it for publication.
+stunning cover for the book and preparing it for publication."
+</p>
+<p>
+Rabbi Dr. Bernhard Rosenberg
 </p>
 </br>
 </div>
@@ -75,6 +95,7 @@ stunning cover for the book and preparing it for publication.
       <table class="table table-hover">
           <tr>
               <th>Movie</th>
+              <th>Title</th>
               <th>Year</th>
               <th>Country</th>
               <th>Director</th>
@@ -83,6 +104,7 @@ stunning cover for the book and preparing it for publication.
           </tr>
           {% for movie in movies_list %}
               <tr>
+                  <td><img src="{{movie.mov_poster}}" alt="Movie Poster" width="100"></td>
                   <td>{{movie.mov_name}}</td>
                   <td>{{movie.mov_year}}</td>
                   <td>{{movie.mov_country}}</td>
@@ -99,24 +121,24 @@ stunning cover for the book and preparing it for publication.
   <p>There are no movies in the database.</p>
 {% endif %}
 </p>
-
+</br>
 <div class=container>
 
 </div>
 <img src="{% static 'images/Holocaust-Movies.jpg' %}" alt="portal header" class="img-fluid" width="100%">
 	
 <p>
-
+</br>
 <!-- Footer Wrapper -->
-  <div id="footer-wrapper" style="background-color: dark;">
+  <div id="footer-wrapper" class="container-fluid">
     <footer id="footer" >
       <div class="row">
         <div class="col-3 col-6-medium col-12-small">
 
           <!-- Links -->
             <section>
-              <h2>Filler Links</h2>
-              <ul class="divided">
+              <h2>Supporters</h2>
+              <ul class="divided" style="list-style: none;">
                 <li><a href="#">Quam turpis feugiat dolor</a></li>
                 <li><a href="#">Amet ornare in hendrerit </a></li>
                 <li><a href="#">Semper mod quisturpis nisi</a></li>
@@ -136,8 +158,8 @@ stunning cover for the book and preparing it for publication.
 
           <!-- Links -->
             <section>
-              <h2>More Filler</h2>
-              <ul class="divided">
+              <h2>Other Books</h2>
+              <ul class="divided" style="list-style: none;">
                 <li><a href="#">Quam turpis feugiat dolor</a></li>
                 <li><a href="#">Amet ornare in in lectus</a></li>
                 <li><a href="#">Semper mod sed tempus nisi</a></li>
@@ -148,12 +170,22 @@ stunning cover for the book and preparing it for publication.
           <!-- Links -->
             <section>
               <h2>Even More Filler</h2>
-              <ul class="divided">
-                <li><a href="#">Quam turpis feugiat dolor</a></li>
-                <li><a href="#">Amet ornare hendrerit lectus</a></li>
-                <li><a href="#">Semper quisturpis nisi</a></li>
-                <li><a href="#">Consequat lorem phasellus</a></li>
-              </ul>
+              <div class="footer-icons">
+                <ul style="list-style: none;">
+                  <li>
+                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                  </li>
+                  
+                </ul>
             </section>
 
         </div>
@@ -162,12 +194,12 @@ stunning cover for the book and preparing it for publication.
           <!-- About -->
             <section>
               <h2><strong>Holocaust Films </strong> Database</h2>
-              <p>Hi! This is <strong>ZeroFour</strong>, a free, fully responsive HTML5 site
-              template by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>.
-              It's <a href="http://html5up.net/license/">Creative Commons Attribution</a>
-              licensed so use it for any personal or commercial project (just credit us
-              for the design!).</p>
-              <a href="#" class="button alt icon solid fa-arrow-circle-right">Support Project</a>
+              <p>
+                This work contains a brief description of a select collection of <strong>Holocaust related and
+                inspired films</strong>, along with relevant questions to spark dynamic classroom discussion. It is
+                not designed to be an exhaustive list, but rather, numerous movies, documentaries, and
+                films that the author believes are of value to students of the Holocaust and their teachers</p>
+              <a href="#"><i class="fa fa-life-ring" aria-hidden="true"></i> Support Project</a>
             </section>
 
           <!-- Contact -->
@@ -178,13 +210,13 @@ stunning cover for the book and preparing it for publication.
                   <div class="col-6 col-12-small">
                     <dl class="contact">
                       <dt>Twitter</dt>
-                      <dd><a href="#">@untitled-corp</a></dd>
+                      <dd><a href="https://twitter.com/NeverFrgetRabbi"><i class="fa fa-twitter"></i> Account</a></dd>
                       <dt>Facebook</dt>
-                      <dd><a href="#">facebook.com/untitled</a></dd>
+                      <dd><a href="https://www.facebook.com/bernhard.rosenberg.7"><i class="fa fa-facebook"></i> Profile</a></dd>
                       <dt>WWW</dt>
-                      <dd><a href="#">untitled.tld</a></dd>
+                      <dd><a href="https://bernhardrosenberg.com/"><i class="fa fa-desktop"></i> bernhardrosenberg.com/</a></dd>
                       <dt>Email</dt>
-                      <dd><a href="#">user@untitled.tld</a></dd>
+                      <dd><a href="#"><i class="fa fa-envelope-o"></i> Email</a></dd>
                     </dl>
                   </div>
                   <div class="col-6 col-12-small">
