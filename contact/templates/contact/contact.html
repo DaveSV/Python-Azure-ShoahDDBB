@@ -1,4 +1,6 @@
-{% load static %}
+
+
+ {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'contact/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'contact/contact.css' %}">
     <style>
       .div_contenedor {
         position: relative;
@@ -59,70 +62,18 @@
   
   <h4>Based on the Rabbi Dr. Bernhard Rosenberg's book</h4>
 
-<p>The Holocaust as Seen by Through Film by Rabbi Dr. Bernhard H. Rosenberg is a special book that adds to his other authored that educate students, educators and the community about the Holocaust and assists in meeting the New Jersey mandate that all students must learn about the Holocaust and genocide. This book in particular blends the specific cognitive, historical aspects of the atrocity with excellent literature which helps meet the new common core standards through the pictures, questions, discussions and research associated with each story. The Commission recommends the book for the classroom and community.
-</p>
-</br>
-<div class="div_contenedor">
-<p align=center>
-  <iframe title="vimeo-player" src="https://player.vimeo.com/video/735051890?h=9295f61134&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&portrait=false&byline=false&title=false" width="640" height="360" frameborder="0" allowfullscreen></iframe>
-</p>
-</div>
-</br>
-<p>
-"My wife and ayshes chayl, Charlene, joins me in dedicating this book to the memory of my beloved parents, Jacob and Rachel Rosenberg, of blessed memory, Holocaust survivors, and to our children, Ilana, Ayelet, Yaakov and Ari, and grandchildren."
-  <p>
-  "This book is also in memory of my aunt Regina Braun and my cousins
-  Maria and Fred Devinki of blessed memory. In addition to my parents, they
-  were the only family members I ever knew who survived the Holocaust." 
-  </p>
-</p>
-<p>
-  <h2>Acknowledgments:</h2>
-"A special thanks to my sons, Yaakov and Ari Rosenberg for helping edit
-this book’s first edition.
-Thank you to Azriela Jaffe, an accomplished author, for her assistance
-in editing this book’s updated edition.
-Thank you to Kathy Rend, an outstanding graphic artist, for creating a
-stunning cover for the book and preparing it for publication."
-</p>
-<p>
-Rabbi Dr. Bernhard Rosenberg
-</p>
-</br>
-</div>
 
 
-<p>
-{% if movies_list %}
 
-<div class="container card">
-  <h2>Movie Catalog</h2>
-  <div class="card-body">
-      <table class="table table-hover">
-          <tr>
-              <th>Movie</th>
-              <th>Title</th>
-              
-              <th>Details</th>
-          </tr>
-          {% for movie in movies_list %}
-              <tr>
-                  <td><img src="{{movie.mov_poster}}" alt="Movie Poster" width="100"></td>
-                  <td>{{movie.mov_name}} {{movie.mov_year}} {{movie.mov_country}}
-                  </br>Director {{movie.mov_director}}
-                </br>Language {{movie.mov_language}}
-                  </td>
-                  <td><a href="{% url 'catalog' %}" class="btn btn-info btn-sm" type="submit">View details</a></td>
-              </tr>
-          {% endfor %}
-      </table>
-  </div>
-</div>
-
-{% else %}
-  <p>There are no movies in the database.</p>
-{% endif %}
-</p>
+<div class=container><p>
+    <hr>
+<h2>Contact us</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+ </form>
+</p></div>
 </br>
 <div>
 
