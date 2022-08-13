@@ -2,6 +2,7 @@
 from django.template.response import TemplateResponse
 from django.shortcuts import render
 from django.views.generic import ListView
+from django.http import HttpResponse
 
 from shoahDDBB.models import Movies
 
@@ -12,4 +13,15 @@ def index(request):
 
 class catalog(ListView):
     model = Movies
-    
+
+def book(request):
+    return render(request, 'shoahDDBB/book.html')
+
+def author(request):
+    return render(request, 'shoahDDBB/author.html')
+
+def user(request):
+    return render(request, 'shoahDDBB/user.html')
+
+def search(request):
+    return render(request, 'shoahDDBB/search.html')
