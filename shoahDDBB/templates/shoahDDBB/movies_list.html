@@ -6,8 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"> 
     <link href="{% static 'style.css' %}" rel="stylesheet">
+    
     <style>
+      body {
+        background-color: #DCD7D6;
+      }
+      h1, h2, h3, h4 {
+        color: #C25100;
+        font-family: 'Nunito', sans-serif;
+      }
       .div_contenedor {
         position: relative;
         padding-bottom: 56.25%; /*panorámico*/
@@ -40,7 +50,7 @@
         </div>
         <div align="right">
         <form class="form-inline">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control" type="search" placeholder="Film name" aria-label="Search">
           <button class="btn btn-info" type="submit">Search</button>
         </form>
       </div>
@@ -98,7 +108,7 @@ Rabbi Dr. Bernhard Rosenberg
 {% if movies_list %}
 
 <div class="container card">
-  <h2>Movie Catalog</h2>
+  <h2 align="center">Movie Catalog</h2>
   <div class="card-body">
       <table class="table table-hover">
           <tr>
@@ -110,9 +120,11 @@ Rabbi Dr. Bernhard Rosenberg
           {% for movie in movies_list %}
               <tr>
                   <td><img src="{{movie.mov_poster}}" alt="Movie Poster" width="100"></td>
-                  <td>{{movie.mov_name}} {{movie.mov_year}} {{movie.mov_country}}
-                  </br>Director {{movie.mov_director}}
-                </br>Language {{movie.mov_language}}
+                  <td>{{movie.mov_name}} 
+                  </br>Year: {{movie.mov_year}} 
+                </br>Country: {{movie.mov_country}}
+                  </br>Director: {{movie.mov_director}}
+                </br>Language: {{movie.mov_language}}
                   </td>
                   <td><a href="{% url 'catalog' %}" class="btn btn-info btn-sm" type="submit">View details</a></td>
               </tr>
@@ -198,11 +210,11 @@ Rabbi Dr. Bernhard Rosenberg
  <section>
   <h2>Other Books</h2>
   <ul class="divided" style="list-style: none;">
-    <li><a href="#" target="_blank">Does Judaism believe in Gilgul? Transmigrations of Souls</a></li>
-    <li><a href="#" target="_blank">Echoes of The Holocaust: Survivors and Their Children and Grandchildren Speak Out </a></li>
-    <li><a href="#" target="_blank">Rosenberg English Holocaust Haggadah For Passover: Holocaust Poems and Essays to Supplement the Seder</a></li>
-    <li><a href="#" target="_blank">Holocaust Survivors and Their Families: Remember, Reflect And Reminisce</a></li>
-    <li><a href="#" target="_blank">Genesis of the Palestinian Authority</a></li>
+    <li><a href="https://amzn.to/3SSp7V1" target="_blank">Does Judaism believe in Gilgul? Transmigrations of Souls</a></li>
+    <li><a href="https://amzn.to/3QHD5Hz" target="_blank">Echoes of The Holocaust: Survivors and Their Children and Grandchildren Speak Out </a></li>
+    <li><a href="https://amzn.to/3C49DqZ" target="_blank">Rosenberg English Holocaust Haggadah For Passover: Holocaust Poems and Essays to Supplement the Seder</a></li>
+    <li><a href="https://amzn.to/3C4HEaU" target="_blank">Holocaust Survivors and Their Families: Remember, Reflect And Reminisce</a></li>
+    <li><a href="https://amzn.to/3piarB2" target="_blank">Genesis of the Palestinian Authority</a></li>
   </ul>
 </section>
 
