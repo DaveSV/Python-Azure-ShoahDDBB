@@ -1,6 +1,4 @@
-
-
- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{% static 'contact/style.css' %}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'contact/contact.css' %}">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
     <style>
       .div_contenedor {
         position: relative;
@@ -25,7 +22,7 @@
         height: 100%;
       }
     </style>
-    <title>Holocaust Database</title>
+    <title>{% block title %} {% endblock %}</title>
     
 </head>
 <body>
@@ -63,23 +60,17 @@
   
   <h4>Based on the Rabbi Dr. Bernhard Rosenberg's book</h4>
 
-
-
-
-<div class=container><p>
-    <hr>
-<h2>Contact us</h2>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
- </form>
-</p></div>
+<p>The Holocaust as Seen by Through Film by Rabbi Dr. Bernhard H. Rosenberg is a special book that adds to his other authored that educate students, educators and the community about the Holocaust and assists in meeting the New Jersey mandate that all students must learn about the Holocaust and genocide. This book in particular blends the specific cognitive, historical aspects of the atrocity with excellent literature which helps meet the new common core standards through the pictures, questions, discussions and research associated with each story. The Commission recommends the book for the classroom and community.
+</p>
 </br>
-<div>
 
-</div>
-<img src="{% static 'images/Holocaust-Movies2.jpg' %}" alt="portal header" class="img-fluid" width="100%">
+    
+    </div>
+
+    {% block content %}
+    {% endblock %}  
+
+    <img src="{% static 'images/Holocaust-Movies2.jpg' %}" alt="portal header" class="img-fluid" width="100%">
 	
 <p>
 <div class="div_contenedor">
