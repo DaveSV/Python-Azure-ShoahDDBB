@@ -1,0 +1,44 @@
+{% extends 'shoahDDBB/base.html' %}
+
+{% block title %}
+Film details
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+<div class="container card">
+    <h2 align="center">Film Details</h2>
+    <div class="card-body">
+        <table class="table table-hover">
+            
+        
+                <tr>
+                    <td><img src="{{movie.mov_poster}}" alt="Movie Poster" width="200" align="right"></td>
+                    <td><strong>{{movie.mov_name}} </strong>
+                    </br>Year: {{movie.mov_year}} 
+                  </br>Country: {{movie.mov_country}}
+                    </br>Director: {{movie.mov_director}}
+                </br>Language: {{movie.mov_language}}
+                </br>Rating: {{movie.mov_rating}}
+                    </td>
+                    
+                </tr>
+           
+        </table>
+        <div align="center">
+        <strong>Overview</strong></br>
+        {{movie.mov_overview}}</br></br>
+        <strong>Trailer</strong></br></br>
+        <iframe width="560" height="315" src="{{movie.url_trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></br></br>
+        <strong>Streaming</strong></br>
+        <a href="{{movie.mov_streaming}}" target="_blank">{{movie.mov_streaming}}</a></br>
+        
+    </div>
+    </div>
+  <p>
+    <a href="javascript: history.go(-1)">« Back</a>
+  </p>
+  </div>
+</div>  
+{% endblock %}

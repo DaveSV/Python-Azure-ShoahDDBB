@@ -1,9 +1,8 @@
 
 from django.template.response import TemplateResponse
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
-
 from shoahDDBB.models import Movies
 
 def index(request):
@@ -12,7 +11,13 @@ def index(request):
     return response
 
 class catalog(ListView):
+    paginate_by = 5
     model = Movies
+
+def movieDetail(request, pk):
+    movie = get_object_or_404(Movies, pk=pk)
+    context = {'movie': movie}
+    return render(request, 'shoahDDBB/movieDetail.html', context)
 
 def book(request):
     return render(request, 'shoahDDBB/book.html')
