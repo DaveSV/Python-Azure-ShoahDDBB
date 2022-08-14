@@ -10,4 +10,5 @@ urlpatterns = [
     path('user/', views.user, name='user'),
     path('search/', views.search, name='search'),
     path('author/', views.author, name='author'),
+    path('catalog/<int:pk>', views.movieDetail, name='movieDetail'),
 ]
