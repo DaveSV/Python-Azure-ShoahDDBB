@@ -11,7 +11,7 @@ def index(request):
     return response
 
 class catalog(ListView):
-    paginate_by = 5
+    paginate_by = 10
     model = Movies
 
 def movieDetail(request, pk):

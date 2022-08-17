@@ -32,8 +32,12 @@ Film details
         <strong>Trailer</strong></br></br>
         <iframe width="560" height="315" src="{{movie.url_trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></br></br>
         <strong>Streaming</strong></br>
-        <a href="{{movie.mov_streaming}}" target="_blank">{{movie.mov_streaming}}</a></br>
-        
+        {% if movie.mov_streaming %}
+          <a href="{{movie.mov_streaming}}" target="_blank">{{movie.mov_streaming}}</a></br>
+        {% else %}
+          <p>No stream available.</p>
+        {% endif %}
+
     </div>
     </div>
   <p>

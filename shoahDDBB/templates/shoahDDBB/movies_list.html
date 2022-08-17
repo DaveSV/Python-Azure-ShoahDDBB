@@ -119,8 +119,8 @@ Rabbi Dr. Bernhard Rosenberg
           </tr>
           {% for movie in movies_list %}
               <tr>
-                  <td><img src="{{movie.mov_poster}}" alt="Movie Poster" width="100"></td>
-                  <td><strong>{{movie.mov_name}} </strong>
+                  <td><a href="/catalog/{{movie.pk}}"><img src="{{movie.mov_poster}}" alt="Movie Poster" width="100"></a></td>
+                  <td><a href="/catalog/{{movie.pk}}"><strong>{{movie.mov_name}} </strong></a>
                   </br>Year: {{movie.mov_year}} 
                 </br>Country: {{movie.mov_country}}
                   </br>Director: {{movie.mov_director}}
