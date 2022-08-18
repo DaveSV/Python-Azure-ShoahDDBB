@@ -1,0 +1,49 @@
+{% extends 'shoahDDBB/base.html' %}
+{% load static %}
+
+{% block title %}
+Support the Project
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Support the Project</h2>
+<div>
+    <p>This work contains a brief description of a select collection of Holocaust related and inspired films, along with relevant questions to spark dynamic classroom discussion. It is not designed to be an exhaustive list, but rather, numerous movies, documentaries, and films that the author believes are of value to students of the Holocaust and their teachers.
+    </p>
+    <div class="container">
+        <div class="container card">
+            <img src="{% static 'images/movie-database.jpg' %}"
+        </div>
+    </br>
+    </div>
+</br>
+    <p>
+        The Holocaust Film Database is a non-profit, educational content project. This database and web application will contain all the information in an interactive way from the book The Holocaust As Seen Through Film by Rabbi Dr. Bernhard Rosenberg. We use the best current technology in the communication of the bibliography, as AWS Cloud Services, SQL relational database and Python/Django Framework over LiteSpeed Server technology.
+    </p>
+    <p>
+        Please support project!
+    </p>
+</div>
+</div>
+
+<div class="container">
+    <div id="donate-button-container">
+    <div id="donate-button"></div>
+    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+    <script>
+    PayPal.Donation.Button({
+    env:'production',
+    hosted_button_id:'H867RBHYH39EL',
+    image: {
+    src:"{% static 'images/paypal-donate.png' %}",
+    alt:'Donate with PayPal button',
+    title:'PayPal - The safer, easier way to pay online!',
+    }
+    }).render('#donate-button');
+    </script>
+    </div>
+</div>
+
+</br>
+{% endblock %}
