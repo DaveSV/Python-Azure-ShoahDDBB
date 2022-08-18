@@ -41,3 +41,6 @@ def user(request):
 
 def search(request):
     return render(request, 'shoahDDBB/search.html')
+
+def support(request):
+    return render(request, 'shoahDDBB/support.html')
