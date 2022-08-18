@@ -16,7 +16,8 @@ class catalog(ListView):
 
 def movieDetail(request, pk):
     movie = get_object_or_404(Movies, pk=pk)
-    context = {'movie': movie}
+    pk2 = pk +1
+    context = {'movie': movie, 'pk2': pk2}
     return render(request, 'shoahDDBB/movieDetail.html', context)
 
 def book(request):
