@@ -31,7 +31,10 @@ Film details of {{movie.mov_name}}
         <strong>Overview</strong></br>
         {{movie.mov_overview}}</br></br>
         <strong>Trailer</strong></br></br>
-        <iframe width="560" height="315" src="{{movie.url_trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></br></br>
+        <div class="div_contenedor">
+        <iframe width="560" height="315" src="{{movie.url_trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        </br></br>
         <strong>Streaming</strong></br>
         {% if movie.mov_streaming %}
           <a href="{{movie.mov_streaming}}" target="_blank">{{movie.mov_streaming}}</a></br>
