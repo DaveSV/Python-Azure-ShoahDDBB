@@ -1,13 +1,34 @@
 {% extends 'shoahDDBB/base.html' %}
+{% load static %}
 
 {% block title %}
 Author
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <h2>Author</h2>
-<div>Rabbi Dr. Bernhard Rosenberg</div>
+<div class="container"> 
+    <p><h2>Author</h2>
+    <div><h3>Rabbi Dr. Bernhard Rosenberg</h3>
+    <a href="https://bernhardrosenberg.com/" target="_blank">bernhardrosenberg.com</a>
+    </p>
+    <p>
+        Rabbi Dr. Bernhard H. Rosenberg, Rabbi Emeritus of Congregation Beth-El, Edison, New Jersey. He received his ordination and Doctorate of Education from Yeshiva University in New York. He also possesses A.A., B.A., M.A., and M.S. degrees in communication and education. He possesses a Doctor of Divinity from The Jewish Theological Seminary, New York. He taught at Rutgers University in New Jersey and Yeshiva University in New York. Rabbi Rosenberg’s book, “Theological and Halachic Reflections on the Holocaust” is now in its second printing. He is the author of “A Guide for the Jewish Mourner,” “Contemplating the Holocaust,” “What the Holocaust Means to Me: Teenagers Speak Out,” “Thoughts on the Holocaust-Where Was God Where Was Man–Teenagers Reflect on Major Themes of the Holocaust , “The Holocaust as seen Through Film,”  “Public Speaking – A Guide for Study”  "Echoes of the Holocaust"-   "Genesis of the Palestinian Authority and his latest book Rosenberg's Haggadah For Passover. He  received the Dr. Martin Luther King Jr Humanitarian Award. He also received the Chaplain of the Year Award from The New York Board of Rabbis for his efforts during and following 9-ll. On June 10, 2002 Rabbi Rosenberg was presented with the annual Rabbi Israel Mowshowitz Award by The New York Board of Rabbis. Rabbi Rosenberg appears frequently on radio and TV and has published hundreds of articles regarding the Holocaust.  He serves on the New Jersey State Holocaust Commission and is the Chairman of the Holocaust Commission of the New York Board of Rabbis.
+    </p>
+
+</div>
+    <div><img src="{% static 'images/Rosenberg-Picture.jpg' %}" class="image-fluid" width="50%"></div></br>
+    <div>
+        <h3>Writer & Editor</h3></br>
+        <p>A major experienced of writing articles on local newspapers, blogs, social media and interviews on TV about different topics. A vast knowledge of editing services for book publications on Amazon.</p>
+        
+        <h3>Rabbinical Services</h3></br>
+        <p>More than 40 years of Rabbinical Services, supporting the Jewish law in many ways: Religious observance, Life cycle events – Births, Bar mitzvahs, Weddings End of life matters -funerals, minyan prayer services, consecrations.</p>
+
+        <h3>Public Speaking</h3></br>
+        <p>A vast experienced on performing a speech to a live audience. This type of speech is deliberately structured with three general purposes: to inform, to persuade and to educated the public about political, religious, social and life events.</p>
+    </div>
+<hr>
 </div>
 </br>
+
 {% endblock %}
