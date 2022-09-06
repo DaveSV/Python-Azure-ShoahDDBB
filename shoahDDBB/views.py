@@ -1,8 +1,10 @@
 
+from pdb import post_mortem
+from webbrowser import get
 from django.template.response import TemplateResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from shoahDDBB.models import Movies
 
 def index(request):
@@ -44,3 +46,13 @@ def search(request):
 
 def support(request):
     return render(request, 'shoahDDBB/support.html')
+
+def search_result(request):
+    paginate_by = 10
+    text = request.POST.get('search')
+    #text = "Holocaust"
+    list = Movies.objects.filter(mov_name__contains=text)
+    total = Movies.objects.filter(mov_name__contains=text).count()
+    res = {"movies_list": list, "text": text, "total": total}
+    
+    return render(request, 'shoahDDBB/movies_search.html', res)

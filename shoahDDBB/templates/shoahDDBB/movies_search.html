@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,8 +52,9 @@
         <a class="navbar-brand"href="/contact/"> Contact</a>
         </div>
         <div align="right">
-        <form class="form-inline">
-          <input class="form-control" type="search" placeholder="Film name" aria-label="Search">
+        <form class="form-inline" action="/search_result/" method="POST">
+            {% csrf_token %}
+          <input class="form-control" type="search" name="search" placeholder="Film name" aria-label="Search">
           <button class="btn btn-info" type="submit">Search</button>
         </form>
       </div>
@@ -77,42 +79,20 @@
 </p>
 </br>
 
-<div class="container card" >
-<div class="div_contenedor">
-  <iframe title="vimeo-player" src="https://player.vimeo.com/video/735051890?h=9295f61134&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&portrait=false&byline=false&title=false"  frameborder="0" allowfullscreen width="500"></iframe>
-</div>
+
 </div>
 
 </br>
-<p>
-"My wife and ayshes chayl, Charlene, joins me in dedicating this book to the memory of my beloved parents, Jacob and Rachel Rosenberg, of blessed memory, Holocaust survivors, and to our children, Ilana, Ayelet, Yaakov and Ari, and grandchildren."
-  <p>
-  "This book is also in memory of my aunt Regina Braun and my cousins
-  Maria and Fred Devinki of blessed memory. In addition to my parents, they
-  were the only family members I ever knew who survived the Holocaust." 
-  </p>
-</p>
-<p>
-  <h2>Acknowledgments:</h2>
-"A special thanks to my sons, Yaakov and Ari Rosenberg for helping edit
-this book’s first edition.
-Thank you to Azriela Jaffe, an accomplished author, for her assistance
-in editing this book’s updated edition.
-Thank you to Kathy Rend, an outstanding graphic artist, for creating a
-stunning cover for the book and preparing it for publication."
-</p>
-<p>
-Rabbi Dr. Bernhard Rosenberg
-</p>
+
 </br>
 </div>
 
 
 <p>
-{% if movies_list %}
+
 
 <div class="container card">
-  <h2 align="center">Catalog: total {{ total }} films</h2>
+  <h2 align="center">Results for {{ text }}: total {{ total }} films</h2>
   <div class="card-body">
       <table class="table table-hover">
           <tr>
@@ -137,30 +117,12 @@ Rabbi Dr. Bernhard Rosenberg
   </div>
 
   
-  <div class="pagination" align="center">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
   
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-  
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-  </div>
 
 
 </div>
 
-{% else %}
-  <p>There are no movies in the database.</p>
-{% endif %}
+
 
 
 
