@@ -1,14 +1,17 @@
 {% load static %}
+{% load crispy_forms_tags%}
 <!doctype html>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title>The Holocaust Films Database</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <!-- Favicons -->
   <link href="{% static 'images/icons.png' %}" rel="icon"> 
-  <meta name="keywords" content="css3, html5, js, background video, fullscreen video">
-  <meta name="description" content="Super easy to implement HTML5 fullscreen background video library in JavaScript.">
-
+  <meta name="keywords" content="holocaust, book, film, database, films, rabbi, bernhard, rosenberg, students, Final Solution, World War II, Europe, Auschwitz, Propaganda, Nazi, Nuremberg">
+  <meta name="description" content="Holocaust Films Database, based on the Rabbi Dr. Bernhard Rosenberg's book The Holocaust as Seen by Through Film">
+  <link rel=“canonical” href=”https://holocaustfilms.info/index.html”/>
   <style>
     * {
       margin: 0; padding: 0;
@@ -116,6 +119,7 @@
 
     #links {
       margin-top: 50px;
+      
     }
 
     #links a {
@@ -147,6 +151,7 @@
     #footer a:last-child {
       float: right;
     }
+    
   </style>
 
   <script src="https://use.typekit.net/nlq1kdt.js"></script>
@@ -174,18 +179,26 @@
         <p class="info">Based on the Rabbi Dr. Bernhard Rosenberg's book </p>
       </div>
 
-      <div id="links">
+      <div id="links" align="center">
         <a href="/catalog/">Access Catalog</a>
         <a href="/support/">Support Project</a>
+        <div id="links" class="abs-center">
+        <form class="form-group" action="/search_result/" method="POST" align="center">
+          {% csrf_token %}
+        <input class="form-control" name="search" type="text" name="search" placeholder="Film name" aria-label="Search" required>
+        </br>
+        <input type="submit" value="Search movie" name="subscribe" id="mc-embedded-subscribe" class="form-control"">
+      </form>
+    </div>
       </div>
     </section>
   </div>
 
-  <div id="footer">
+  <div id="footer" align="center">
     
 
     
-    
+    Holocaust, book, film, database, films, rabbi, Bernhard Rosenberg, students, Final Solution, World War II, Europe, Auschwitz, Propaganda, Nazi, Nuremberg
   </div>
 
   <script src="{% static 'bideo.js' %}"></script>

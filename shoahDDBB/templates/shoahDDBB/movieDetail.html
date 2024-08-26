@@ -6,44 +6,59 @@ Film details of {{movie.mov_name}}
 
 
 {% block content %}
-<div class="container">
-<div class="container card">
+<div class="container-fluid">
+  <div class="container card">
     <h2 align="center">Film Details</h2>
-    <div class="card-body">
+      <div class="card-body">
         <table class="table table-hover">
-            
-        
-                <tr>
-                    <td><img src="{{movie.mov_poster}}" alt="Movie Poster" width="200" align="right"></td>
-                    <td><strong>{{movie.mov_name}} </strong>
+            <tr>
+                <td><img src="{{movie.mov_poster}}" alt="Movie Poster" width="200" align="right"></td>
+                <td><strong>{{movie.mov_name}} </strong>
                     </br>Year: {{movie.mov_year}} 
-                  </br>Country: {{movie.mov_country}}
+                    </br>Country: {{movie.mov_country}}
                     </br>Director: {{movie.mov_director}}
-                </br>Language: {{movie.mov_language}}
-                </br>Rating: {{movie.mov_rating}}
-                    
-                </br><a href="{{movie.url_movie}}" target="_blank">External link </a>
-              </td>
-                </tr>
+                    </br>Language: {{movie.mov_language}}
+                    </br>Rating: {{movie.mov_rating}}
+                    </br><a href="{{movie.url_movie}}" target="_blank">External link </a>
+                </td>
+              </tr>
            
         </table>
-        <div align="center">
-        <strong>Overview</strong></br>
-        {{movie.mov_overview}}</br></br>
-        <strong>Trailer</strong></br></br>
-        <div class="div_contenedor">
-        <iframe width="560" height="315" src="{{movie.url_trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        </br></br>
-        <strong>Streaming</strong></br>
-        {% if movie.mov_streaming %}
-          <a href="{{movie.mov_streaming}}" target="_blank">{{movie.mov_streaming}}</a></br>
-        {% else %}
-          <p>No stream available.</p>
-        {% endif %}
 
-    </div>
-    </div>
+        <div align="center">
+          <strong>Overview</strong></br>
+          {{movie.mov_overview}}</br></br>
+          
+          
+          
+          
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+               
+                <p class="text-center mt-5">
+                  
+                  <a href="#headerPopup_2" id="headerVideoLink_2" target="_blank" class="btn u-fullwidth popup-modal">Watch Trailer</a>
+                </p>
+                <div id="headerPopup_2" class="mfp-hide embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" width="854" height="480" src="{{movie.url_trailer}}?autoplay=1" frameborder="0"  allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          </br></br>
+          <strong>Streaming</strong></br>
+          {% if movie.mov_streaming %}
+          <a href="{{movie.mov_streaming}}" target="_blank">{{movie.mov_streaming}}</a></br>
+          {% else %}
+          <p>No stream available.</p>
+          {% endif %}
+
+        </div>
+      </div>
     
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-62fd6338537561bb"></script>
@@ -54,7 +69,7 @@ Film details of {{movie.mov_name}}
    <hr>
     <p>
     <a href="javascript: history.go(-1)">« Back</a><a href="{{ pk2 }}"> Next</a>
-  </p>
+    </p>
   </div>
 </div>  
 {% endblock %}

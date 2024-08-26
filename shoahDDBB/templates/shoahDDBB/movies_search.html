@@ -1,99 +1,17 @@
-{% load static %}
-{% load crispy_forms_tags%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"> 
-    <link href="{% static 'style.css' %}" rel="stylesheet">
-    
-    <style>
-      body {
-        background-color: #DCD7D6;
-      }
-      h1, h2, h3, h4 {
-        color: #C25100;
-        font-family: 'Nunito', sans-serif;
-      }
-      .div_contenedor {
-        position: relative;
-        padding-bottom: 56.25%; /*panorámico*/
-        padding-top: 25px;
-        height: 0;
-      }
-      .div_contenedor iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-    <title>Holocaust Database</title>
-    
-</head>
-<body>
-  <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_LA/sdk.js#xfbml=1&version=v14.0" nonce="58hS4ZVV"></script>
-  <div class="container">
-    <img src="{% static 'images/Holocaust-Movies.jpg' %}" alt="portal header" class="img-fluid" width="100%">
-    <div>
-      <nav class="navbar navbar-dark bg-dark">
-        <div align="left">
-        <a class="navbar-brand" href="/catalog/"> Catalog</a>
-        <a class="navbar-brand" href="/search/"> Search</a>
-        <a class="navbar-brand" href="/author/"> Author</a>
-        <a class="navbar-brand" href="/book/"> Book</a>
-        <a class="navbar-brand" href="/user/"> Register / Login</a>
-        <a class="navbar-brand"href="/contact/"> Contact</a>
-        </div>
-        <div align="right">
-        <form class="form-inline" action="/search_result/" method="POST">
-            {% csrf_token %}
-          <input class="form-control" type="search" name="search" placeholder="Film name" aria-label="Search">
-          <button class="btn btn-info" type="submit">Search</button>
-        </form>
-      </div>
-      </nav>
-    </div>
-  </div>
-    
+{% extends 'shoahDDBB/base.html' %}
 
-    
-    <br>
-	<br>
+{% block title %}
+Book
+{% endblock %}
+
+{% block content %}
 
 
-<div class=container>
+{% if movies_list %}
 
-  <h1>THE HOLOCAUST AS SEEN THROUGH FILM</h1>
-  <h3>Holocaust Films Database</h3>
-  
-  <h4>Based on the Rabbi Dr. Bernhard Rosenberg's book</h4>
-
-<p>The Holocaust as Seen by Through Film by Rabbi Dr. Bernhard H. Rosenberg is a special book that adds to his other authored that educate students, educators and the community about the Holocaust and assists in meeting the New Jersey mandate that all students must learn about the Holocaust and genocide. This book in particular blends the specific cognitive, historical aspects of the atrocity with excellent literature which helps meet the new common core standards through the pictures, questions, discussions and research associated with each story. The Commission recommends the book for the classroom and community.
-</p>
-</br>
-
-
-</div>
-
-</br>
-
-</br>
-</div>
-
-
-<p>
-
-
-<div class="container card">
-  <h2 align="center">Results for {{ text }}: total {{ total }} films</h2>
-  <div class="card-body">
+<div class="container-fluid">
+  <h2 align="center">Catalog: total {{ total }} films</h2>
+  <div class="table-responsive">
       <table class="table table-hover">
           <tr>
               <th>Movie</th>
@@ -110,120 +28,22 @@
                   </br>Director: {{movie.mov_director}}
                 
                   </td>
-                  <td><a href="/catalog/{{movie.pk}}" class="btn btn-info btn-sm" type="submit">View details</a></td>
+                  <td><a href="/catalog/{{movie.pk}}" class="btn btn-sm" type="submit">Details</a></td>
               </tr>
           {% endfor %}
       </table>
   </div>
 
+  <form class="form-group" action="/search_result/" method="POST" align="center">
+    {% csrf_token %}
+    Search movies / documentaries by name
+  <input class="form-control" name="search" type="text" name="search" placeholder="Film name" aria-label="Search" required>
+  <input type="submit" value="Search for films" name="subscribe" id="mc-embedded-subscribe" class="form-control"">
+</form>
+</div>
+
+{% else %}
+  <p>There are no movies in the database.</p>
+{% endif %}
   
-  
-
-
-</div>
-
-
-
-
-
-</p>
-</br>
-<div class="container" >
-<div class="fb-comments" data-href="https://as-django-app.herokuapp.com/" data-width="800" data-numposts="8"></div>
-</div>
-<div class="container">
-
-
-<img src="{% static 'images/Holocaust-Movies2.jpg' %}" alt="portal header" class="img-fluid" width="100%">
-</div>
-
-<div class="container">
-  <iframe src="https://www.google.com/maps/d/embed?mid=1Yqt_cbT5G86GG_BCYBvcaGXmgE4&ehbc=2E312F" width="100%" height="480"></iframe>
-</div>
-</br>
-<!-- Footer Wrapper -->
-  <div id="footer-wrapper" class="container-fluid">
-    
-  </div>
-
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-sm">
-
-        <section>
-          <h2>Holocaust Films Database</h2>
-          <p>
-            This work contains a brief description of a select collection of <strong>Holocaust related and
-            inspired films</strong>, along with relevant questions to spark dynamic classroom discussion. It is
-            not designed to be an exhaustive list, but rather, numerous movies, documentaries, and
-            films that the author believes are of value to students of the Holocaust and their teachers.
-            </br>
-            <a href="/support/"><i class="fa fa-life-ring" aria-hidden="true"></i> Support Project</a>
-          </p>
-        </section>
-
-      
-
-      </div>
-      <div class="col-sm">
-
-<!-- Contact -->
-<section>
-
- 
-  <div>
-    <div class="row">
-      
-
-      
-      <div><h2>Get in touch</h2>
-      <ul class="divided" style="list-style: none;">
-        <li>Twitter</li>
-        <li><a href="https://twitter.com/NeverFrgetRabbi"><i class="fa fa-twitter"></i> Account</a></li>
-        <li>Facebook</li>
-        <li><a href="https://www.facebook.com/bernhard.rosenberg.7"><i class="fa fa-facebook"></i> Profile</a></li>
-        <li>Web Site</li>
-        <li><a href="https://bernhardrosenberg.com/"><i class="fa fa-desktop"></i> bernhardrosenberg.com</a></li>
-        <li>Email</li>
-        <li><a href="mailto:chaimdov@aol.com"><i class="fa fa-envelope-o"></i> Email</a></li>
-        <li>Address</li>
-        <li><a href="#"><i class="fa fa-map-marker"></i>  Edison, NJ</a></li>
-      </ul>
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-      </div>
-      <div class="col-sm">
- <!-- Links -->
- <section>
-  <h2>Other Books</h2>
-  <ul class="divided" style="list-style: none;">
-    <li><a href="https://amzn.to/3SSp7V1" target="_blank">Does Judaism believe in Gilgul? Transmigrations of Souls</a></li>
-    <li><a href="https://amzn.to/3QHD5Hz" target="_blank">Echoes of The Holocaust: Survivors and Their Children and Grandchildren Speak Out </a></li>
-    <li><a href="https://amzn.to/3C49DqZ" target="_blank">Rosenberg English Holocaust Haggadah For Passover: Holocaust Poems and Essays to Supplement the Seder</a></li>
-    <li><a href="https://amzn.to/3C4HEaU" target="_blank">Holocaust Survivors and Their Families: Remember, Reflect And Reminisce</a></li>
-    <li><a href="https://amzn.to/3piarB2" target="_blank">Genesis of the Palestinian Authority</a></li>
-  </ul>
-</section>
-
-      </div>
-    </div>
-    <hr>
-  </div>
-  <div class="col-12" align=center>
-    
-    <div id="copyright">
-      
-        &copy; Holocaust Films Database. All rights reserved / Design: <a href="https://albertosaenz.com/" target="_blank">AS</a>
-      
-    </div>
-  </div>
-</p>
-
-</body>
-</html>
+  {% endblock %}
