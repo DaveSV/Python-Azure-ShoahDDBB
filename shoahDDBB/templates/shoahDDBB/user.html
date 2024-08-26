@@ -7,7 +7,16 @@ User
 {% block content %}
 <div class="container">
     <h2>User</h2>
-<div>Register / Login</div>
+
+{% if user.is_authenticated %}
+Hi {{ user.username }}!
+<p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">login</a> |
+<a href="{% url 'signup' %}">signup</a>
+{% endif %}
+
 </div>
 </br>
 {% endblock %}

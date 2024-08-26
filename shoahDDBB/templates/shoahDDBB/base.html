@@ -1,22 +1,39 @@
 {% load static %}
+{% load cookiebanner %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{% static 'style.css' %}" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
-    <style>
-      body {
-        background-color: #DCD7D6;
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Holocaust Films Database</title>
+    <meta content="Holocaust Films Database, based on the Rabbi Dr. Bernhard Rosenberg's book The Holocaust as Seen by Through Film" name="description">
+    <meta content="holocaust, book, film, database, films, rabbi, bernhard, rosenberg, students, Final Solution, World War II, Europe, Auschwitz, Propaganda, Nazi, Nuremberg" name="keywords">
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
+    <script>
+      #headerPopup{
+        width:75%;
+        margin:0 auto;
       }
-      h1, h2, h3, h4 {
-        color: #C25100;
-        font-family: 'Nunito', sans-serif;
+      
+      #headerPopup iframe{
+        width:100%;
+        margin:0 auto;
       }
       .div_contenedor {
         position: relative;
@@ -31,149 +48,433 @@
         width: 100%;
         height: 100%;
       }
-    </style>
-    <title>{% block title %} {% endblock %}</title>
+    </script>
     
+    <script>
+        #headerPopup_2{
+          width:75%;
+          margin:0 auto;
+        }
+        
+        #headerPopup_2 iframe{
+          width:100%;
+          margin:0 auto;
+        }
+        .div_contenedor {
+          position: relative;
+          padding-bottom: 56.25%; /*panorámico*/
+          padding-top: 25px;
+          height: 0;
+        }
+        .div_contenedor iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      </script>
+    <script>
+      $( document ).ready(function() {
+      $('#headerVideoLink').magnificPopup({
+      type:'inline',
+      midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+      });
+    });
+    </script>
+    <script>
+        $( document ).ready(function() {
+        $('#headerVideoLink_2').magnificPopup({
+        type:'inline',
+        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+        });
+      });
+      </script>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/icons.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/icons.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/icons.png' %}">
+
+
+
+
 </head>
-<body>
-  <div class="container">
-    <img src="{% static 'images/Holocaust-Movies.jpg' %}" alt="portal header" class="img-fluid" width="100%">
-    <div>
-      <nav class="navbar navbar-dark bg-dark">
-        <div align="left">
-        <a class="navbar-brand" href="/catalog/"> Catalog</a>
-        <a class="navbar-brand" href="/search/"> Search</a>
-        <a class="navbar-brand" href="/author/"> Author</a>
-        <a class="navbar-brand" href="/book/"> Book</a>
-        <a class="navbar-brand" href="/user/"> Register / Login</a>
-        <a class="navbar-brand"href="/contact/"> Contact</a>
-        </div>
-        <div align="right">
-        <form class="form-inline" action="/search_result/" method="POST">
-          {% csrf_token %}
-          <input class="form-control" type="search" placeholder="Film name" aria-label="Search">
-          <button class="btn btn-info" type="submit">Search</button>
-        </form>
-      </div>
-      </nav>
+
+<body id="top" class="theme-slides">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader"></div>
     </div>
-  </div>
+
+
+    <!-- page wrap
+    ================================================== -->
+    <div class="s-pagewrap">
+
+
+        <!-- # header
+        ================================================== -->
+        <header class="s-header">
+            <div class="row s-header__content">
+
+                <div class="s-header__logo">
+                   
+                        <img src="{% static 'images/holocaustFilmCover.jpg' %}" alt="Movies" >
+                    
+                </div>
     
+                <ul class="s-header__social">
+                    <li>
+                        <a href="https://www.facebook.com/bernhard.rosenberg.7" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M20,3H4C3.447,3,3,3.448,3,4v16c0,0.552,0.447,1,1,1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325,1.42-3.592,3.5-3.592 c0.699-0.002,1.399,0.034,2.095,0.107v2.42h-1.435c-1.128,0-1.348,0.538-1.348,1.325v1.735h2.697l-0.35,2.725h-2.348V21H20 c0.553,0,1-0.448,1-1V4C21,3.448,20.553,3,20,3z"></path></svg>
+                            <span class="screen-reader-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/NeverFrgetRabbi" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M19.633,7.997c0.013,0.175,0.013,0.349,0.013,0.523c0,5.325-4.053,11.461-11.46,11.461c-2.282,0-4.402-0.661-6.186-1.809 c0.324,0.037,0.636,0.05,0.973,0.05c1.883,0,3.616-0.636,5.001-1.721c-1.771-0.037-3.255-1.197-3.767-2.793 c0.249,0.037,0.499,0.062,0.761,0.062c0.361,0,0.724-0.05,1.061-0.137c-1.847-0.374-3.23-1.995-3.23-3.953v-0.05 c0.537,0.299,1.16,0.486,1.82,0.511C3.534,9.419,2.823,8.184,2.823,6.787c0-0.748,0.199-1.434,0.548-2.032 c1.983,2.443,4.964,4.04,8.306,4.215c-0.062-0.3-0.1-0.611-0.1-0.923c0-2.22,1.796-4.028,4.028-4.028 c1.16,0,2.207,0.486,2.943,1.272c0.91-0.175,1.782-0.512,2.556-0.973c-0.299,0.935-0.936,1.721-1.771,2.22 c0.811-0.088,1.597-0.312,2.319-0.624C21.104,6.712,20.419,7.423,19.633,7.997z"></path></svg>
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    
+                </ul>
 
-    
-    <br>
-	<br>
+            </div> <!-- end s-header__content -->
+            
+        </header> <!-- end s-header -->
 
 
-<div class=container>
+        <!-- # intro 
+        ================================================== -->
+        <section id="intro" class="s-intro">
 
-  <h1>THE HOLOCAUST AS SEEN THROUGH FILM</h1>
-  <h3>Holocaust Films Database</h3>
-  
-  <h4>Based on the Rabbi Dr. Bernhard Rosenberg's book</h4>
+            <div class="s-intro__slider swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="s-intro__slide swiper-slide bg-opacity-10" style="background-image: url({% static 'images/slides/shoah1.jpg' %});"></div>
+                    <div class="s-intro__slide swiper-slide bg-opacity-40" style="background-image: url({% static 'images/slides/shoah2.jpg' %});"></div>
+                    <div class="s-intro__slide swiper-slide bg-opacity-40" style="background-image: url({% static 'images/slides/shoah3.jpg' %});"></div>
+                </div>
+            </div>
 
-<p>The Holocaust as Seen by Through Film by Rabbi Dr. Bernhard H. Rosenberg is a special book that adds to his other authored that educate students, educators and the community about the Holocaust and assists in meeting the New Jersey mandate that all students must learn about the Holocaust and genocide. This book in particular blends the specific cognitive, historical aspects of the atrocity with excellent literature which helps meet the new common core standards through the pictures, questions, discussions and research associated with each story. The Commission recommends the book for the classroom and community.
-</p>
-</br>
+            <div class="row s-intro__content">
+                <div class="column lg-12">
+                    
+                    <div class="counter">
+                        <div class="counter__time">
+                          
+                            <span>THE</span>
+                        </div>
+                        <div class="counter__time">
+                            <span class="ss-hours">HOLOCAUST</span>
+                            <span></span>
+                        </div>
+                        <div class="counter__time minutes">
+                            <span class="ss-minutes"></span>
+                            <span>AS SEEN THROUGH</span>
+                        </div>
+                        <div class="counter__time">
+                            <span class="ss-seconds">FILM</span>
+                            <span></span>
+                        </div>
+                    </div>  <!-- end counter -->
 
-    
-    </div>
+                    <div class="s-intro__content-bottom">
+                        <h1 class="s-intro__content-title">
+                          Holocaust Films Database</h1>
+                        <p>
+                        Based on the Rabbi Dr. Bernhard Rosenberg's book 
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="s-intro__scroll">
+                    <p class="scroll-text">Scroll down</p>
+                    <a href="#info" class="smoothscroll">
+                        <div class="mouse"></div>
+                    </a>
+                    <div class="end-top"></div>
+                </div> <!-- end s-intro__scroll -->
+
+            </div> <!-- intro__content -->
+
+        </section> 
+        <!-- end s-intro -->
+        <img src="{% static 'images/slides/Holocaust-Movies2.jpg' %}" alt="portal header" class="img-fluid" width="100%">
+
+        <!-- # info
+        ================================================== -->
+        <section id="info" class="s-info" style="background-image: url({% static 'images/info-bg-k.png' %}); background-repeat: no-repeat; background-size: cover; background-position: bottom;">
+
+            
+
+            <div class="row">
+                <div class="column lg-12">
+
+                    <nav class="tab-nav">
+                        <ul class="tab-nav__list"> 
+                            <li>
+                                <a href="/catalog/">
+                                    Movies
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/search/">
+                                    Search
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/author/">
+                                    Author
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/book/">
+                                    Book
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/user/">
+                                    Register
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/contact/">
+                                    Contact
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </nav> <!-- end tab-nav -->
+        
+                    <div class="tab-content">
+        
+                        <!-- 01 - tab about -->
+                        <div id="tab-about" class='tab-content__item'>
+        
+                            <div class="row tab-content__item-header">
+                                <div class="column">
+                                    <h2>Holocaust Films Database</h2>
+                                </div>
+                            </div>
+        
+                            <div class="row">
+                                <div class="column">
+                                    <p class="lead">
+                                        The Holocaust as Seen by Through Film by Rabbi Dr. Bernhard H. Rosenberg is a special book that adds to his other authored that educate students, educators and the community about the Holocaust and assists in meeting the New Jersey mandate that all students must learn about the Holocaust and genocide.
+                                    </p>
+                                    
+                                    
+                                    <blockquote>
+                                      <p>
+                                          This book in particular blends the specific cognitive, historical aspects of the atrocity with excellent literature which helps meet the new common core standards through the pictures, questions, discussions and research associated with each story.
+                                      </p>
+                                    </blockquote>
+                                    <p class="text-center mt-5">
+                                            
+                                        <a href="#headerPopup" id="headerVideoLink" target="_blank" class="btn u-fullwidth popup-modal">Watch Video</a>
+                                      </p>
+                                      <div id="headerPopup" class="mfp-hide embed-responsive embed-responsive-21by9">
+                                        <iframe class="embed-responsive-item" width="854" height="480" src="https://www.youtube.com/embed/PmOfIuBFNE8?autoplay=1" frameborder="0"  allowfullscreen></iframe>
+                                      </div>
+                                      <p>
+                                          This site contains a brief description of a select collection of Holocaust related and inspired films, along with relevant questions to spark dynamic classroom discussion. It is not designed to be an exhaustive list, but rather, numerous movies, documentaries, and films that the author believes are of value to students of the Holocaust and their teachers.
+                                      </p>
 
     {% block content %}
-    {% endblock %}  
-    <div class="container">
+    {% endblock %} 
 
-
-      <img src="{% static 'images/Holocaust-Movies2.jpg' %}" alt="portal header" class="img-fluid" width="100%">
-      </div>
-      
-      <div class="container">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1Yqt_cbT5G86GG_BCYBvcaGXmgE4&ehbc=2E312F" width="100%" height="480"></iframe>
-      </div>
-</br>
-<!-- Footer Wrapper -->
-  <div id="footer-wrapper" class="container-fluid">
-    
-  </div>
-
-  <div class="container">
-    
     <div class="row">
-      <div class="col-sm">
+      <div class="column lg-6 tab-12">
+        
+        </div>
+        <div class="column lg-6 tab-12">
+            <h4>Book</h4>
+        <p>
+            The Holocaust As Seen Through Film; Version 2018</br>
+            by Rabbi Dr. Bernhard Rosenberg (Author) </br> 
+            Format: Paperback / Kindle </br>
+            Publication date: May 17, 2018 </br>
+            
+        </p>
+            <h4>Others Books</h4>
+            <p>
+            <a href="https://amzn.to/3SSp7V1" target="_blank" style="color: black">Does Judaism believe in Gilgul? Transmigrations of Souls</a></br>
+                                            <a href="https://amzn.to/3QHD5Hz" target="_blank" style="color: black">Echoes of The Holocaust: Survivors and Their Children and Grandchildren Speak Out</a></br>
+                                            <a href="https://amzn.to/3C49DqZ" target="_blank" style="color: black">Rosenberg English Holocaust Haggadah For Passover: Holocaust Poems and Essays to Supplement the Seder</a></br>
+                                            <a href="https://amzn.to/3C4HEaU" target="_blank" style="color: black">Holocaust Survivors and Their Families: Remember, Reflect And Reminisce</a></br>
+                                            <a href="https://amzn.to/3piarB2" target="_blank" style="color: black">Genesis of the Palestinian Authority</a>
+            </p> 
+                                            <p>
+                                                <a href="https://amzn.to/3PeXToE" class="btn btn--primary u-fullwidth" target="_blank">Buy in Amazon</a>
+                                                <a href="/book/" class="btn btn--primary u-fullwidth">Read the preview</a>
+        </p> 
+        </div>
+    </div>
 
-        <section>
-          <h2>Holocaust Films Database</h2>
-          <p>
-            This work contains a brief description of a select collection of <strong>Holocaust related and
-            inspired films</strong>, along with relevant questions to spark dynamic classroom discussion. It is
-            not designed to be an exhaustive list, but rather, numerous movies, documentaries, and
-            films that the author believes are of value to students of the Holocaust and their teachers.
-            </br>
-            <a href="/support/"><i class="fa fa-life-ring" aria-hidden="true"></i> Support Project</a>
-          </p>
-        </section>
+</div>
+</div>
 
-      
+</div> <!-- end 01 - tab about -->
 
-      </div>
-      <div class="col-sm">
 
-<!-- Contact -->
+</div> <!-- end tab content -->
+
+</div> <!-- end column -->
+</div> <!-- end row -->
+
+
+
+</section> <!-- end s-info -->
 <section>
 
- 
-  <div>
-    <div class="row">
-      
+<img src="{% static 'images/slides/Holocaust-Movies.jpg' %}" alt="portal header" class="img-fluid" width="100%">
 
-      
-      <div><h2>Get in touch</h2>
-      <ul class="divided" style="list-style: none;">
-        <li>Twitter</li>
-        <li><a href="https://twitter.com/NeverFrgetRabbi"><i class="fa fa-twitter"></i> Account</a></li>
-        <li>Facebook</li>
-        <li><a href="https://www.facebook.com/bernhard.rosenberg.7"><i class="fa fa-facebook"></i> Profile</a></li>
-        <li>Web Site</li>
-        <li><a href="https://bernhardrosenberg.com/"><i class="fa fa-desktop"></i> bernhardrosenberg.com</a></li>
-        <li>Email</li>
-        <li><a href="mailto:chaimdov@aol.com"><i class="fa fa-envelope-o"></i> Email</a></li>
-        <li>Address</li>
-        <li><a href="#"><i class="fa fa-map-marker"></i>  Edison, NJ</a></li>
-      </ul>
-      </div>
 
-    </div>
-  </div>
+<div class="column lg-12">
 
-</section>
+<!-- 01 - tab about -->
 
-      </div>
-      <div class="col-sm">
- <!-- Links -->
- <section>
-  <h2>Other Books</h2>
-  <ul class="divided" style="list-style: none;">
-    <li><a href="https://amzn.to/3SSp7V1" target="_blank">Does Judaism believe in Gilgul? Transmigrations of Souls</a></li>
-    <li><a href="https://amzn.to/3QHD5Hz" target="_blank">Echoes of The Holocaust: Survivors and Their Children and Grandchildren Speak Out </a></li>
-    <li><a href="https://amzn.to/3C49DqZ" target="_blank">Rosenberg English Holocaust Haggadah For Passover: Holocaust Poems and Essays to Supplement the Seder</a></li>
-    <li><a href="https://amzn.to/3C4HEaU" target="_blank">Holocaust Survivors and Their Families: Remember, Reflect And Reminisce</a></li>
-    <li><a href="https://amzn.to/3piarB2" target="_blank">Genesis of the Palestinian Authority</a></li>
-  </ul>
-</section>
 
-      </div>
-    </div>
-    <hr>
-  </div>
-  <div class="col-12" align=center>
-    
-    <div id="copyright">
-      
-        &copy; Holocaust Films Database. All rights reserved / Design: <a href="https://albertosaenz.com/" target="_blank">AS</a>
-      
-    </div>
-  </div>
+<div class="row tab-content__item-header">
+<div class="column">
+<h2>Interactive Map</h2>
+</div>
+</div>
+
+<div class="row">
+<div class="column">
+<p class="lead">
+On this map you will be able to click on the markers (CC, cities, routes) and get a quick reference about the related locations to films.
 </p>
 
+
+
+</div>
+</div>
+
+
+
+
+
+<iframe src="https://www.google.com/maps/d/embed?mid=1Yqt_cbT5G86GG_BCYBvcaGXmgE4&ehbc=2E312F" width="100%" height="480"></iframe>
+</div> <!-- end tab content -->
+
+</section>
+{% cookiebanner_modal 'vanilla' %}
+
+<!-- # footer
+================================================== -->
+<footer class="s-footer">
+
+<div class="row s-footer__top">
+
+<div class="column lg-6 stack-on-700 s-footer__block s-footer__info">
+
+
+<h4 class="h6">Holocaust Films Database</h4>
+<p>
+This work contains a brief description of a select collection of <strong>Holocaust related and
+inspired films</strong>, along with relevant questions to spark dynamic classroom discussion. It is
+not designed to be an exhaustive list, but rather, numerous movies, documentaries, and
+films that the author believes are of value to students of the Holocaust and their teachers.
+</br>
+<a href="/support/"><i class="fa fa-life-ring" aria-hidden="true"></i> Support Project</a>
+</p>
+
+
+</div> <!-- end s-footer__info -->
+
+<div class="column lg-6 stack-on-700 s-footer__block s-footer__contact">
+
+<h4 class="h6">Contact</h4>
+
+<div class="row">
+<div class="column lg-6 stack-on-1000">
+<p>
+<strong>Website</strong> <br>
+
+<a href="https://bernhardrosenberg.com" target="_blank">bernhardrosenberg.com</a>
+</p>
+</div>
+<div class="column lg-6 stack-on-1000">
+<p>
+<strong>Address</strong> <br>
+
+Edison, NJ
+</p>
+</div>
+<div class="column lg-6 stack-on-1000">
+<p>
+<strong>Email</strong> <br>
+<a href="mailto:contact@holocaustfilms.info">contact@holocaustfilms.info</a>
+</p>
+</div>
+</div>
+
+<p>
+<strong>Social</strong> 
+</p>
+
+<ul class="s-footer__social">
+<li>
+<a href="https://www.facebook.com/bernhard.rosenberg.7" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M20,3H4C3.447,3,3,3.448,3,4v16c0,0.552,0.447,1,1,1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325,1.42-3.592,3.5-3.592 c0.699-0.002,1.399,0.034,2.095,0.107v2.42h-1.435c-1.128,0-1.348,0.538-1.348,1.325v1.735h2.697l-0.35,2.725h-2.348V21H20 c0.553,0,1-0.448,1-1V4C21,3.448,20.553,3,20,3z"></path></svg>
+<span class="screen-reader-text">Facebook</span>
+</a>
+</li>
+<li>
+<a href="https://twitter.com/NeverFrgetRabbi" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M19.633,7.997c0.013,0.175,0.013,0.349,0.013,0.523c0,5.325-4.053,11.461-11.46,11.461c-2.282,0-4.402-0.661-6.186-1.809 c0.324,0.037,0.636,0.05,0.973,0.05c1.883,0,3.616-0.636,5.001-1.721c-1.771-0.037-3.255-1.197-3.767-2.793 c0.249,0.037,0.499,0.062,0.761,0.062c0.361,0,0.724-0.05,1.061-0.137c-1.847-0.374-3.23-1.995-3.23-3.953v-0.05 c0.537,0.299,1.16,0.486,1.82,0.511C3.534,9.419,2.823,8.184,2.823,6.787c0-0.748,0.199-1.434,0.548-2.032 c1.983,2.443,4.964,4.04,8.306,4.215c-0.062-0.3-0.1-0.611-0.1-0.923c0-2.22,1.796-4.028,4.028-4.028 c1.16,0,2.207,0.486,2.943,1.272c0.91-0.175,1.782-0.512,2.556-0.973c-0.299,0.935-0.936,1.721-1.771,2.22 c0.811-0.088,1.597-0.312,2.319-0.624C21.104,6.712,20.419,7.423,19.633,7.997z"></path></svg>
+<span class="screen-reader-text">Twitter</span>
+</a>
+</li>
+</ul>
+
+</div> <!-- end s-footer__contact -->
+
+</div> <!-- end s-footer__top -->
+
+<div class="row s-footer__bottom">
+
+
+
+<div class="column lg-12" align=center>
+<div class="ss-copyright">
+<span>Made with ❤️ to remember the six million Jewish souls murdered during the Holocaust and survivors</span> 
+
+</div>
+</div>
+
+<div class="ss-go-top">
+<a class="smoothscroll" title="Back to Top" href="#top">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M6 4H18V6H6zM11 14L11 20 13 20 13 14 18 14 12 8 6 14z"></path></svg>
+</a>
+</div>
+</div> <!--end s-footer__bottom -->
+
+</footer> <!--end s-footer -->
+
+</div> <!-- end pagewrap -->
+
+
+<!-- Java Script
+================================================== -->
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% cookie_accepted 'analytics' as cookie_analytics %}
+{% if cookie_analytics %}
+<script>... javascript for matomo ...</script>
+{% endif %}
 </body>
-</html>
+</html> 
