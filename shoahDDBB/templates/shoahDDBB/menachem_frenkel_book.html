@@ -1,0 +1,117 @@
+{% extends 'shoahDDBB/base.html' %}
+
+{% block title %}
+Book
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="container" align="center">
+    <hr>
+    <p>
+        <img src="{% static 'images/book.png' %}" alt="Description of the image" style="max-width: 50%; height: auto;margin-bottom: 20px;">
+    </p>
+    
+</div>
+
+<div class="container" align="center">
+    <h2>A question of life</h2>
+</div>
+
+<div class="container" align="justify">
+    <p class="lead">Menachem Frenkel, a Jewish boy of Polish origin born in Belgium,
+    deciphers his childhood experience and his origins</p>
+    <div>
+        <p>A Survivor Who Volunteers with the Police Returned to Auschwitz</p>
+        <p><strong>"To march here in uniform is to come full circle"</strong></p>
+    
+        <p>Menachem Frenkel, 76, was 4 years old when the Germans invaded Belgium, caught his family, and sent them to a concentration camp. Frenkel was saved, but his father was killed in Auschwitz.</p>
+    
+        <p>This week he came full circle after arriving as part of a police delegation, wearing his police uniform to the place that symbolizes for him the worst of all - the extermination camp Auschwitz in Poland. <strong>"To march here in police uniform is to come full circle,"</strong> he said with tears in his eyes.</p>
+    
+        <p>Frenkel, a police volunteer for the last eleven years, was born in Belgium. When the Nazis invaded the country, his family escaped to France. When the Germans came to France, they promised the French authorities that they would not touch Jews with French citizenship; however, those who came from other countries were not protected.</p>
+    
+        <p><strong>"Because of the great shortage of food, my father had to register us in order to receive food stamps. Soon the Nazis caught us and sent us to a concentration camp from where my father was sent to Auschwitz and murdered,"</strong> Frenkel recounted.</p>
+    
+        <p>Frenkel was saved, and at the end of the war, his mother found him and his sister. They made Aliyah to Israel. After his retirement, he decided to volunteer for the police.</p>
+    
+        <p><strong>"The country has done so much for us I decided I wanted to give back. I have already been to Poland but this year it is different – I returned here wearing my police uniform. I will march with pride in Auschwitz. To stand by the gas chambers knowing that my father was killed right here is very powerful and stirring."</strong></p>
+    
+        <h4>The book was published by <a href="https://www.docostory.com/" target="_blank">Docostory Publishing Ltd</a> with the help of:</h4>
+        <ul style="list-style-type: none; padding: 0;">
+            <li>Yad Vashem</li>
+            <li>The Holocaust and Heroism Memorial Authority</li>
+            <li>The foundation to support memoirs of Holocaust survivors</li>
+            <li>Azrieli Group</li>
+            <li>The Azrieli Foundation</li>
+            <li>Claims Conference</li>
+            <li>The Conference on Jewish Material Claims against Germany</li>
+        </ul>
+        <p>
+        Menachem Frenkel lit one of six torches at the State Opening Ceremony of Holocaust Remembrance Day at Yad Vashem in 2006.
+        </br> English
+        <a href="https://www.yadvashem.org/remembrance/archive/torchlighters/frenkel.html" target="_blank">English</a>
+
+        </br>Hebrew
+        <a href="https://www.yadvashem.org/he/remembrance/archive/torchlighters/frenkel.html" target="_blank">Hebrew</a>
+        </br>
+    </div>
+    
+
+
+    
+</div>
+<div class="container" align="center">
+    <p>
+    <img src="{% static 'images/1724175341852blob.jpg' %}" alt="Description of the image" style="max-width: 50%; height: auto;">
+    </p>
+    <p>
+    <p>Click the link below to download or view the PDF:</p>
+
+    <!-- To download the PDF directly -->
+    <a href="{% static 'media/a_question_of_life.pdf' %}" class="btn btn--primary u-fullwidth"  download>Download PDF</a>
+
+    <!-- To open the PDF in a new tab -->
+    <a href="{% static 'media/a_question_of_life.pdf' %}" class="btn btn--primary u-fullwidth"  target="_blank">View PDF</a>
+    </p>  
+    <div class="embed-responsive embed-responsive-16by9"> 
+        <iframe src="https://www.youtube.com/embed/yU4HbV2Uxw4?si=3kPydPVIzkJNQOWH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- Gallery -->
+    <div class="container" align="center">
+        <h4>Image Gallery</h4>
+    </div>
+    <div class="container my-4">
+        <div class="row">
+            {% for image in image_files %}
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img src="{% static 'gallery/'|add:image %}" class="img-fluid img-thumbnail" data-toggle="modal" data-target="#imageModal{{ forloop.counter }}">
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="imageModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="imageModalLabel{{ forloop.counter }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel{{ forloop.counter }}">Image {{ forloop.counter }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{% static 'gallery/'|add:image %}" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</div> 
+<hr>
+</br>
+{% endblock %}

@@ -16,4 +16,5 @@ urlpatterns = [
     path('privacy/', views.privacy, name='privacy'),
     path('catalog/<int:pk>', views.movieDetail, name='movieDetail'),
     path('signup/', signup.as_view(), name="signup"),
-]
+    path('menachem-frenkel/', views.menachem_frenkel_book, name='menachem_frenkel_book'),
+] 

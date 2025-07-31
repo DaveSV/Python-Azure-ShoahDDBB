@@ -24,4 +24,4 @@ urlpatterns = [
     path('', include('shoahDDBB.urls')),
     path('contact/', contact_views.contact_view, name='contact'),
     path('accounts/', include('django.contrib.auth.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

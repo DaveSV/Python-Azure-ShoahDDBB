@@ -41,6 +41,19 @@ def movieDetail(request, pk):
 def book(request):
     return render(request, 'shoahDDBB/book.html')
 
+def menachem_frenkel_book(request):
+    image_files = [
+        '20240118_143255.jpg',
+        '20240118_143300.jpg',
+        '20240118_144042.jpg',
+        '20240118_144045.jpg',
+        '20240118_144048.jpg',
+        '20240118_144727.jpg',
+    ]
+
+
+    return render(request, 'shoahDDBB/menachem_frenkel_book.html', {'image_files': image_files})
+
 def author(request):
     return render(request, 'shoahDDBB/author.html')
 
