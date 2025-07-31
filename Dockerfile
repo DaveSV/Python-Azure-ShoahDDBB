@@ -1,6 +1,6 @@
 ARG PYTHON_VERSION=3.10
 
-FROM python:${PYTHON_VERSION}
+FROM python:${PYTHON_VERSION}-slim
 
 RUN apt-get update && apt-get install -y \
     python3-pip \
@@ -22,5 +22,6 @@ RUN python manage.py collectstatic --noinput
 
 EXPOSE 8080
 
-CMD gunicorn --bind :8080 --workers 2 project.wsgi
+CMD ["gunicorn", "--bind", ":8080", "--workers", "2", "project.wsgi"]
+
 
