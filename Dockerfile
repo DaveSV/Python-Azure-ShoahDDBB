@@ -7,7 +7,11 @@ RUN apt-get update && apt-get install -y \
     python3-venv \
     python3-dev \
     python3-setuptools \
-    python3-wheel
+    python3-wheel \
+    libsqlite3-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
 
 RUN mkdir -p /app
 WORKDIR /app
