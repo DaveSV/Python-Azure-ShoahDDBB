@@ -19,7 +19,6 @@
 
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -220,8 +219,14 @@
                                         <div class="col-sm-12">
                                          
                                           <p class="text-center mt-5">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PmOfIuBFNE8?si=0A4YA13DAJ7SlCzP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                     
+                                    <div class="container-fluid" align="center">
+                                            <iframe width="75%" height="315" src="https://www.youtube.com/embed/PmOfIuBFNE8?si=BEPlsJLDnZsDmYMa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+
+
+                                    
+
                                     <blockquote>
                                       <p>
                                           This book in particular blends the specific cognitive, historical aspects of the atrocity with excellent literature which helps meet the new common core standards through the pictures, questions, discussions and research associated with each story.
@@ -285,12 +290,12 @@
 
 
 </section> <!-- end s-info -->
+
+
 <section>
 
 <img src="{% static 'images/slides/Holocaust-Movies.jpg' %}" alt="portal header" class="img-fluid" width="100%">
-
-
-<div class="column lg-12">
+<div class="column lg-12" align="center">
 
 <!-- 01 - tab about -->
 
@@ -315,8 +320,10 @@ On this map you will be able to click on the markers (CC, cities, routes) and ge
 
 
 
+<div class="container-fluid" align="center">
+<iframe src="https://www.google.com/maps/d/embed?mid=1Yqt_cbT5G86GG_BCYBvcaGXmgE4&ehbc=2E312F" width="80%" height="480"></iframe>
+</div>
 
-<iframe src="https://www.google.com/maps/d/embed?mid=1Yqt_cbT5G86GG_BCYBvcaGXmgE4&ehbc=2E312F" width="100%" height="480"></iframe>
 </div> <!-- end tab content -->
 
 </section>
@@ -417,11 +424,21 @@ Edison, NJ
 </div> <!-- end pagewrap -->
 
 <script>
-        $('#videoModal').on('hidden.bs.modal', function () {
-        var iframe = $(this).find('iframe');
-        iframe.attr('src', iframe.attr('src'));
-        });
-    </script>
+  $(document).ready(function () {
+    var videoSrc = 'https://www.youtube.com/embed/PmOfIuBFNE8';
+
+    $('#videoModal').on('shown.bs.modal', function () {
+      $('#youtubeFrame').attr('src', videoSrc);
+    });
+
+    $('#videoModal').on('hidden.bs.modal', function () {
+      $('#youtubeFrame').attr('src', '');
+    });
+  });
+</script>
+
+
+
 
 <!-- Java Script
 ================================================== -->
