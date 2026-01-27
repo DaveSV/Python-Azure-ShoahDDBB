@@ -24,72 +24,10 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
-    <script>
-      #headerPopup{
-        width:75%;
-        margin:0 auto;
-      }
-      
-      #headerPopup iframe{
-        width:100%;
-        margin:0 auto;
-      }
-      .div_contenedor {
-        position: relative;
-        padding-bottom: 56.25%; /*panorámico*/
-        padding-top: 25px;
-        height: 0;
-      }
-      .div_contenedor iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    </script>
+
     
-    <script>
-        #headerPopup_2{
-          width:75%;
-          margin:0 auto;
-        }
-        
-        #headerPopup_2 iframe{
-          width:100%;
-          margin:0 auto;
-        }
-        .div_contenedor {
-          position: relative;
-          padding-bottom: 56.25%; /*panorámico*/
-          padding-top: 25px;
-          height: 0;
-        }
-        .div_contenedor iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
-      </script>
-    <script>
-      $( document ).ready(function() {
-      $('#headerVideoLink').magnificPopup({
-      type:'inline',
-      midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-      });
-    });
-    </script>
-    <script>
-        $( document ).ready(function() {
-        $('#headerVideoLink_2').magnificPopup({
-        type:'inline',
-        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-        });
-      });
-      </script>
+    
+
 
     <!-- CSS
     ================================================== -->
@@ -285,11 +223,12 @@
                                     </blockquote>
                                     <p class="text-center mt-5">
                                             
-                                        <a href="#headerPopup" id="headerVideoLink" target="_blank" class="btn u-fullwidth popup-modal">Watch Video</a>
-                                      </p>
-                                      <div id="headerPopup" class="mfp-hide embed-responsive embed-responsive-21by9">
-                                        <iframe class="embed-responsive-item" width="854" height="480" src="https://www.youtube.com/embed/PmOfIuBFNE8?autoplay=1" frameborder="0"  allowfullscreen></iframe>
-                                      </div>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/PmOfIuBFNE8?si=0A4YA13DAJ7SlCzP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        
+                                        
+                                        
+
+
                                       <p>
                                           This site contains a brief description of a select collection of Holocaust related and inspired films, along with relevant questions to spark dynamic classroom discussion. It is not designed to be an exhaustive list, but rather, numerous movies, documentaries, and films that the author believes are of value to students of the Holocaust and their teachers.
                                       </p>
@@ -471,6 +410,12 @@ Edison, NJ
 
 </div> <!-- end pagewrap -->
 
+<script>
+        $('#videoModal').on('hidden.bs.modal', function () {
+        var iframe = $(this).find('iframe');
+        iframe.attr('src', iframe.attr('src'));
+        });
+    </script>
 
 <!-- Java Script
 ================================================== -->
