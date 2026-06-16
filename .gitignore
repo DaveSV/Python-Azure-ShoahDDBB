@@ -1,2 +1,20 @@
 shoah_app.zip
 venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Base de datos local Django
+# db.sqlite3
+
+# Variables de entorno
+.env
+
+# Archivos de IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
